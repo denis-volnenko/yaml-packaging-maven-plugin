@@ -7,7 +7,7 @@
     <groupId>ru.volnenko.example.yaml</groupId>
     <artifactId>openapi</artifactId>
     <version>1.0.0</version>
-    <packaging>json</packaging>
+    <packaging>yaml</packaging>
 
     <developers>
         <developer>

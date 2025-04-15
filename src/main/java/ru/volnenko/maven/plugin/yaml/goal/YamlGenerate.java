@@ -43,7 +43,7 @@ public class YamlGenerate extends AbstractMojo {
 
         if (!files.isEmpty()) {
             @NonNull final RootParser rootParser = new RootParser();
-            @NonNull final String yaml = rootParser.files(files).json();
+            @NonNull final String yaml = rootParser.files(files).yaml();
             Files.write(build.toPath(), yaml.getBytes(StandardCharsets.UTF_8));
         } else {
             @NonNull final YAMLMapper mapper = new YAMLMapper();
