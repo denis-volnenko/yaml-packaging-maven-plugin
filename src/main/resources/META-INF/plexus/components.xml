@@ -1,0 +1,30 @@
+<component-set>
+    <components>
+        <component>
+            <role>org.apache.maven.lifecycle.mapping.LifecycleMapping</role>
+            <role-hint>yaml</role-hint>
+            <implementation>
+                org.apache.maven.lifecycle.mapping.DefaultLifecycleMapping
+            </implementation>
+            <configuration>
+                <phases>
+                    <clean>org.apache.maven.plugins:maven-clean-plugin:clean</clean>
+                    <generate-resources>${project.groupId}:${project.artifactId}:${project.version}:generate</generate-resources>
+                    <package>${project.groupId}:${project.artifactId}:${project.version}:package</package>
+                    <install>org.apache.maven.plugins:maven-install-plugin:install</install>
+                    <deploy>org.apache.maven.plugins:maven-deploy-plugin:deploy</deploy>
+                </phases>
+            </configuration>
+        </component>
+        <component>
+            <role>org.apache.maven.artifact.handler.ArtifactHandler</role>
+            <role-hint>yaml</role-hint>
+            <implementation>org.apache.maven.artifact.handler.DefaultArtifactHandler</implementation>
+            <configuration>
+                <extension>yaml</extension>
+                <type>yaml</type>
+                <packaging>yaml</packaging>
+            </configuration>
+        </component>
+    </components>
+</component-set>
