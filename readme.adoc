@@ -1,0 +1,145 @@
+= yaml-packaging-maven-plugin
+:toc:
+
+== Project Info
+
+[cols="20,80"]
+|===
+
+|*Version*
+|1.0.1
+
+|*Java*
+|OpenJDK 8
+
+|*Maven*
+|3.6.3
+
+|===
+
+== Developer Info
+
+[cols="20,80"]
+|===
+
+|*Name*
+|Denis Volnenko
+
+|*E-mail*
+|denis@volnenko.ru
+
+|===
+
+== Volnenko Maven Plugins
+
+[cols="30,70"]
+|===
+
+|*Liquilbase*
+a|
+https://github.com/denis-volnenko/liquilbase-asciidoc-maven-plugin/
+https://maven.volnenko.ru/sites/liquilbase-asciidoc-maven-plugin/
+
+|*OpenApi*
+a|
+https://github.com/denis-volnenko/openapi-asciidoc-maven-plugin/
+https://maven.volnenko.ru/sites/openapi-asciidoc-maven-plugin/
+
+|*Minio Wagon*
+a|
+https://github.com/denis-volnenko/minio-wagon-maven-plugin/
+https://maven.volnenko.ru/sites/minio-wagon-maven-plugin/
+
+
+|*Json Packaging*
+a|
+https://github.com/denis-volnenko/json-packaging-maven-plugin/
+
+|===
+
+== Plugin configuration
+
+=== Repository config
+
+----
+<?xml version="1.0" encoding="UTF-8"?>
+<project ...>
+    ...
+    <repositories>
+        <repository>
+            <id>maven.volnenko.ru</id>
+            <name>maven.volnenko.ru</name>
+            <url>https://maven.volnenko.ru/repository</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+    ...
+    <pluginRepositories>
+        <pluginRepository>
+            <id>maven.volnenko.ru</id>
+            <name>maven.volnenko.ru</name>
+            <url>https://maven.volnenko.ru/repository</url>
+        </pluginRepository>
+    </pluginRepositories>
+    ...
+</project>
+----
+
+=== Plugin Configuration
+
+----
+<?xml version="1.0" encoding="UTF-8"?>
+<project ...>
+    <modelVersion>4.0.0</modelVersion>
+    ...
+    <groupId>...</groupId>
+    <artifactId>...</artifactId>
+    <version>...</version>
+    <packaging>json</packaging>
+    ...
+    <build>
+        <finalName>openapi</finalName>
+        <plugins>
+            <plugin>
+                <groupId>ru.volnenko.maven.plugin</groupId>
+                <artifactId>yaml-packaging-maven-plugin</artifactId>
+                <version>1.0.0</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <files>
+                        <file>${project.basedir}/src/main/resources/openapi.yaml</file>
+                        <file>${project.basedir}/src/main/resources/model/error.yaml</file>
+                        <file>${project.basedir}/src/main/resources/model/project.yaml</file>
+                        <file>${project.basedir}/src/main/resources/model/task.yaml</file>
+                        <file>${project.basedir}/src/main/resources/model/user.yaml</file>
+                        <file>${project.basedir}/src/main/resources/path/project/select-one.yaml</file>
+                        <file>${project.basedir}/src/main/resources/path/project/select-all.yaml</file>
+                        <file>${project.basedir}/src/main/resources/path/task/select-one.yaml</file>
+                        <file>${project.basedir}/src/main/resources/path/task/select-all.yaml</file>
+                    </files>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    ...
+</project>
+----
+
+== Development
+
+=== Build json artifact
+
+----
+mvn clean install
+----
+
+=== Deploy json artifact
+
+----
+mvn deploy
+----
