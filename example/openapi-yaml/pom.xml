@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>ru.volnenko.example.yaml</groupId>
+    <artifactId>openapi</artifactId>
+    <version>1.0.0</version>
+    <packaging>json</packaging>
+
+    <developers>
+        <developer>
+            <id>volnenko</id>
+            <email>denis@volnenko.ru</email>
+            <name>Denis Volnenko</name>
+        </developer>
+    </developers>
+
+    <properties>
+        <extension.wagon.groupId>org.apache.maven.wagon</extension.wagon.groupId>
+        <extension.wagon.artifactId>wagon-webdav-jackrabbit</extension.wagon.artifactId>
+        <extension.wagon.version>3.5.2</extension.wagon.version>
+        <aspectj.version>1.8.10</aspectj.version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <build>
+        <finalName>example</finalName>
+        <plugins>
+            <plugin>
+                <groupId>ru.volnenko.maven.plugin</groupId>
+                <artifactId>yaml-packaging-maven-plugin</artifactId>
+                <version>1.0.0</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <files>
+                        <file>${project.basedir}/src/main/resources/openapi.yaml</file>
+                        <file>${project.basedir}/src/main/resources/model/error.yaml</file>
+                        <file>${project.basedir}/src/main/resources/model/project.yaml</file>
+                        <file>${project.basedir}/src/main/resources/model/task.yaml</file>
+                        <file>${project.basedir}/src/main/resources/model/user.yaml</file>
+                        <file>${project.basedir}/src/main/resources/path/project/select-one.yaml</file>
+                        <file>${project.basedir}/src/main/resources/path/project/select-all.yaml</file>
+                        <file>${project.basedir}/src/main/resources/path/task/select-one.yaml</file>
+                        <file>${project.basedir}/src/main/resources/path/task/select-all.yaml</file>
+                    </files>
+                </configuration>
+            </plugin>
+        </plugins>
+        <extensions>
+            <extension>
+                <groupId>${extension.wagon.groupId}</groupId>
+                <artifactId>${extension.wagon.artifactId}</artifactId>
+                <version>${extension.wagon.version}</version>
+            </extension>
+        </extensions>
+    </build>
+
+    <distributionManagement>
+        <repository>
+            <id>m2.volnenko.ru</id>
+            <name>m2.volnenko.ru</name>
+            <url>dav:https://m2.volnenko.ru/v1/webdav/repository</url>
+            <uniqueVersion>true</uniqueVersion>
+        </repository>
+        <site>
+            <id>m2.volnenko.ru</id>
+            <name>m2.volnenko.ru</name>
+            <url>dav:https://m2.volnenko.ru/v1/webdav/sites/${project.artifactId}</url>
+        </site>
+    </distributionManagement>
+
+</project>

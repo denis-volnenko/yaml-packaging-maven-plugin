@@ -1,0 +1,40 @@
+components:
+  schemas:
+    Task:
+      type: object
+      description: Задача
+      required:
+        - id
+        - userId
+        - created
+        - updated
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Идентификатор
+        name:
+          type: string
+          description: Название
+        description:
+          type: string
+          description: Описание
+        statusType:
+          type: string
+          description: Статус
+          enum:
+            - NOT_STARTED
+            - IN_PROGRESS
+            - COMPLETE
+        userId:
+          type: string
+          format: uuid
+          description: Код пользователя
+        created:
+          type: string
+          format: iso8601
+          description: Дата создания
+        updated:
+          type: string
+          format: iso8601
+          description: Дата создания

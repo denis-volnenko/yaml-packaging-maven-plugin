@@ -1,0 +1,28 @@
+paths:
+  /project/all/:
+    get:
+      tags:
+        - project
+      summary: Выборка всех проектов.
+      description: Выборка всех проектов.
+      operationId: selectAllProject
+      responses:
+        '200':
+          description: Успешный ответ
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Project'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Project'
+        default:
+          description: Неизветсная ошибока
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"

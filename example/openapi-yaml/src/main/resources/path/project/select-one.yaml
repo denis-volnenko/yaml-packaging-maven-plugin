@@ -1,0 +1,34 @@
+paths:
+  /project/one/{projectId}/:
+    get:
+      tags:
+        - project
+      summary: Выборка проекта.
+      description: Выборка одного проекта по Id.
+      operationId: selectOneProject
+      parameters:
+        - name: projectId
+          in: path
+          description: Код проекта
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Успешный ответ
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Project'
+        '404':
+          description: Проект не найден
+        default:
+          description: Неизветсная ошибока
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"

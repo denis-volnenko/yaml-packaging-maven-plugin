@@ -1,0 +1,28 @@
+paths:
+  /task/all/:
+    get:
+      tags:
+        - task
+      summary: Выборка всех задач.
+      description: Выборка всех задач.
+      operationId: selectAllTask
+      responses:
+        '200':
+          description: Успешный ответ
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Task'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Task'
+        default:
+          description: Неизветсная ошибока
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"

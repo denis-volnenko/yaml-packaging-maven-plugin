@@ -1,0 +1,39 @@
+components:
+  schemas:
+    User:
+      type: object
+      description: Пользователь
+      required:
+        - id
+        - username
+        - email
+        - created
+        - updated
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Идентификатор
+        username:
+          type: string
+          description: Имя пользователя
+        firstName:
+          type: string
+          description: Имя
+        lastName:
+          type: string
+          description: Фамилия
+        middleName:
+          type: string
+          description: Отчество
+        email:
+          type: string
+          description: E-mail
+        created:
+          type: string
+          format: iso8601
+          description: Дата создания
+        updated:
+          type: string
+          format: iso8601
+          description: Дата создания
