@@ -132,13 +132,13 @@ https://github.com/denis-volnenko/json-packaging-maven-plugin/
 
 == Development
 
-=== Build json artifact
+=== Build yaml artifact
 
 ----
 mvn clean install
 ----
 
-=== Deploy json artifact
+=== Deploy yaml artifact
 
 ----
 mvn deploy
