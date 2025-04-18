@@ -48,9 +48,13 @@ public class YamlGenerate extends AbstractMojo {
             @NonNull final DefaultArtifact dependency = (DefaultArtifact) dependencyObject;
             if (!"compile".equalsIgnoreCase(dependency.getScope())) continue;
             if ("json".equalsIgnoreCase(dependency.getType()) || "yaml".equalsIgnoreCase(dependency.getType())) {
+                String classifier = dependency.getClassifier();
+                if (classifier == null) classifier = "";
+                else classifier = "-" + classifier;
                 @NonNull final String name = dependency.getGroupId().replace(".", "/") + "/"
                         + dependency.getArtifactId() + "/" + dependency.getVersion() + "/"
-                        + dependency.getArtifactId() + "-" + dependency.getVersion() + "." + dependency.getType();
+                        + dependency.getArtifactId() + "-" + dependency.getVersion() + classifier
+                        + "." + dependency.getType();
                 @NonNull final File file = new File(settings.getLocalRepository(), name);
                 @NonNull final String filename = file.getAbsolutePath();
                 if (!file.exists()) {
