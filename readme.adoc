@@ -30,38 +30,6 @@
 
 |===
 
-== Volnenko Maven Plugins
-
-[cols="30,70"]
-|===
-
-|*Liquilbase*
-a|
-https://github.com/denis-volnenko/liquilbase-asciidoc-maven-plugin/
-https://maven.volnenko.ru/sites/liquilbase-asciidoc-maven-plugin/
-
-|*OpenApi*
-a|
-https://github.com/denis-volnenko/openapi-asciidoc-maven-plugin/
-https://maven.volnenko.ru/sites/openapi-asciidoc-maven-plugin/
-
-|*Minio Wagon*
-a|
-https://github.com/denis-volnenko/minio-wagon-maven-plugin/
-https://maven.volnenko.ru/sites/minio-wagon-maven-plugin/
-
-
-|*Json Packaging*
-a|
-https://github.com/denis-volnenko/json-packaging-maven-plugin/
-
-
-|*Yaml Packaging*
-a|
-https://github.com/denis-volnenko/yaml-packaging-maven-plugin/
-
-|===
-
 == Plugin configuration
 
 === Repository config
